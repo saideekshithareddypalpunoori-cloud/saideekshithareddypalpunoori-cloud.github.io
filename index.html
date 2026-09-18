@@ -1,0 +1,3624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sai Deekshitha Reddy | Supply Chain Analyst</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Sai Deekshitha Reddy Palpunoori — Supply Chain Analyst focused on planning, inventory, procurement, logistics, ERP systems, and analytics."
+  >
+
+  <meta name="theme-color" content="#07110f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+<style>
+/* =========================================================
+   SUPPLY CHAIN COMMAND CENTER — DESIGN SYSTEM
+========================================================= */
+:root{
+  --bg:#050a09;
+  --bg2:#07110f;
+  --bg3:#0b1714;
+  --panel:rgba(11,24,20,.78);
+  --panel2:rgba(8,18,16,.92);
+
+  --text:#f4fff9;
+  --soft:#c5d5ce;
+  --muted:#7e968c;
+
+  --lime:#b8ff5c;
+  --mint:#67f6c0;
+  --cyan:#69ddff;
+  --amber:#ffcf70;
+  --violet:#ac91ff;
+
+  --line:rgba(255,255,255,.09);
+  --line2:rgba(255,255,255,.16);
+
+  --shadow:0 28px 90px rgba(0,0,0,.42);
+  --max:1240px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:var(--text);
+  font-family:"Inter",sans-serif;
+  background:
+    radial-gradient(circle at 8% -2%, rgba(184,255,92,.12), transparent 30%),
+    radial-gradient(circle at 95% 11%, rgba(105,221,255,.09), transparent 28%),
+    radial-gradient(circle at 50% 85%, rgba(172,145,255,.08), transparent 36%),
+    linear-gradient(180deg,#040807 0%,#07110f 48%,#040807 100%);
+  overflow-x:hidden;
+}
+
+body.modal-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button{color:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--lime);color:#071006}
+
+.wrap{width:min(var(--max),92vw);margin:auto}
+section{position:relative;padding:100px 0;scroll-margin-top:100px}
+
+/* =========================================================
+   ATMOSPHERE
+========================================================= */
+.noise{
+  position:fixed;inset:0;z-index:-40;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.73' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.26'/%3E%3C/svg%3E");
+}
+
+.grid-bg{
+  position:fixed;inset:0;z-index:-39;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(circle at 50% 32%,black,transparent 75%);
+}
+
+.scanline{
+  position:fixed;inset:0;z-index:-38;pointer-events:none;opacity:.16;
+  background:linear-gradient(180deg,transparent 0,rgba(184,255,92,.025) 50%,transparent 100%);
+  background-size:100% 220px;
+  animation:scan 12s linear infinite;
+}
+
+@keyframes scan{
+  from{background-position:0 -220px}
+  to{background-position:0 100vh}
+}
+
+.ambient{
+  position:fixed;width:520px;height:520px;border-radius:50%;
+  filter:blur(170px);pointer-events:none;z-index:-37;opacity:.08;
+}
+
+.ambient.a{top:-220px;left:-180px;background:var(--lime);animation:ambientA 17s ease-in-out infinite alternate}
+.ambient.b{right:-240px;top:26%;background:var(--cyan);animation:ambientB 21s ease-in-out infinite alternate}
+.ambient.c{left:36%;bottom:-320px;background:var(--violet);animation:ambientC 25s ease-in-out infinite alternate}
+
+@keyframes ambientA{to{transform:translate(150px,120px) scale(1.12)}}
+@keyframes ambientB{to{transform:translate(-120px,100px) scale(.94)}}
+@keyframes ambientC{to{transform:translate(120px,-110px) scale(1.08)}}
+
+.cursor-light{
+  position:fixed;width:420px;height:420px;border-radius:50%;
+  pointer-events:none;z-index:-30;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(184,255,92,.08),rgba(105,221,255,.035) 38%,transparent 70%);
+}
+
+.progress{
+  position:fixed;top:0;left:0;width:0;height:3px;z-index:1000;
+  background:linear-gradient(90deg,var(--lime),var(--mint),var(--cyan),var(--violet));
+  box-shadow:0 0 16px rgba(184,255,92,.42);
+}
+
+.glass{
+  background:linear-gradient(145deg,rgba(255,255,255,.072),rgba(255,255,255,.023));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+}
+
+/* =========================================================
+   NAV
+========================================================= */
+.navbar{
+  position:fixed;top:14px;left:0;width:100%;z-index:500;pointer-events:none;
+}
+
+.nav-inner{
+  width:min(1180px,94vw);margin:auto;min-height:64px;padding:8px 10px 8px 15px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  border:1px solid rgba(255,255,255,.11);border-radius:999px;
+  background:rgba(5,10,9,.87);backdrop-filter:blur(28px);
+  box-shadow:0 16px 50px rgba(0,0,0,.31);pointer-events:auto;
+}
+
+.brand{
+  display:flex;align-items:center;gap:11px;min-width:0;
+  font-family:"Manrope",sans-serif;font-weight:800;letter-spacing:-.03em;
+}
+
+.brand-mark{
+  width:38px;height:38px;display:grid;place-items:center;flex:0 0 38px;
+  border-radius:13px;color:#071006;font-size:.76rem;font-weight:900;
+  background:linear-gradient(135deg,var(--lime),var(--mint));
+  box-shadow:0 11px 27px rgba(184,255,92,.14);
+}
+
+.brand-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.nav-links{display:flex;align-items:center;gap:1px}
+
+.nav-links a,.nav-links button{
+  padding:10px 9px;border:0;border-radius:999px;color:#c8d8d0;
+  background:transparent;cursor:pointer;font-size:.77rem;transition:.2s ease;
+}
+
+.nav-links a:hover,.nav-links button:hover{color:white;background:rgba(255,255,255,.07)}
+.nav-links a.active{color:white;background:rgba(184,255,92,.08)}
+
+.resume-nav{
+  margin-left:5px!important;padding-inline:15px!important;color:#efffdc!important;
+  border:1px solid rgba(184,255,92,.22)!important;background:rgba(184,255,92,.07)!important;
+}
+
+.menu-btn{
+  display:none;width:43px;height:43px;place-items:center;border:1px solid var(--line);
+  border-radius:13px;background:rgba(255,255,255,.05);cursor:pointer;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+.btn{
+  position:relative;overflow:hidden;min-height:48px;padding:12px 18px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--line2);border-radius:999px;background:rgba(255,255,255,.045);
+  color:white;font-weight:760;cursor:pointer;transition:.22s ease;
+}
+
+.btn::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.18),transparent 76%);
+  transform:translateX(-130%);transition:.6s ease;
+}
+
+.btn:hover::before{transform:translateX(130%)}
+.btn:hover{transform:translateY(-3px);border-color:rgba(184,255,92,.34);box-shadow:0 16px 38px rgba(0,0,0,.25)}
+
+.btn.primary{
+  color:#071006;border:0;background:linear-gradient(105deg,var(--lime),var(--mint));
+}
+
+.btn.small{min-height:40px;padding:9px 14px;font-size:.82rem}
+
+/* =========================================================
+   HERO — COMMAND CENTER
+========================================================= */
+.hero{
+  min-height:100vh;padding:140px 0 85px;display:grid;align-items:center;overflow:hidden;
+}
+
+.hero-grid{
+  display:grid;grid-template-columns:1.02fr .98fr;gap:58px;align-items:center;
+}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;padding:8px 12px;
+  border-radius:999px;color:#edffd7;background:rgba(184,255,92,.05);
+  border:1px solid rgba(184,255,92,.17);font-size:.77rem;font-weight:700;
+}
+
+.eyebrow::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 0 6px rgba(184,255,92,.055);animation:pulse 2s infinite;
+}
+
+@keyframes pulse{50%{box-shadow:0 0 0 11px rgba(184,255,92,.008)}}
+
+.hero-name{
+  margin:0 0 14px;color:#c4d5cd;font-size:clamp(1rem,1.5vw,1.17rem);font-weight:700;
+}
+
+.hero h1{
+  margin:0;max-width:790px;font-family:"Manrope",sans-serif;
+  font-size:clamp(3.4rem,6.6vw,6.9rem);line-height:.89;letter-spacing:-.071em;font-weight:800;
+}
+
+.hero-gradient{
+  display:inline-block;color:transparent;
+  background:linear-gradient(90deg,#fff,var(--lime) 30%,var(--mint) 55%,var(--cyan) 78%,var(--violet));
+  background-size:230% auto;background-clip:text;-webkit-background-clip:text;
+  animation:gradientShift 7s ease-in-out infinite;
+}
+
+@keyframes gradientShift{
+  0%,100%{background-position:0 center}
+  50%{background-position:100% center}
+}
+
+.hero-copy{
+  max-width:680px;margin-top:22px;color:var(--soft);line-height:1.72;
+  font-size:clamp(.98rem,1.4vw,1.08rem);
+}
+
+.hero-copy b{color:white}
+
+.hero-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+
+.focus-line{
+  min-height:30px;margin-top:22px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+  color:var(--muted);font-weight:650;
+}
+
+.focus-switch{color:var(--lime);transition:opacity .28s ease,transform .28s ease}
+.focus-switch.swap-out{opacity:0;transform:translateY(7px)}
+
+/* =========================================================
+   SUPPLY CHAIN VISUAL
+========================================================= */
+.hero-stage{
+  position:relative;min-height:620px;display:grid;place-items:center;
+}
+
+.command-card{
+  position:relative;z-index:5;width:min(470px,100%);padding:15px;border-radius:34px;
+  transform-style:preserve-3d;transition:transform .14s ease;
+}
+
+.command-inner{padding:14px;border-radius:27px;background:rgba(4,10,8,.68);border:1px solid rgba(255,255,255,.07)}
+
+.command-top{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px;
+  font-family:"DM Mono",monospace;font-size:.67rem;color:#9eb2a8;text-transform:uppercase;letter-spacing:.08em;
+}
+
+.live-chip{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 9px;border-radius:999px;
+  color:#dfffc0;background:rgba(184,255,92,.055);border:1px solid rgba(184,255,92,.15);
+}
+
+.live-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime)}
+
+.profile-frame{position:relative;overflow:hidden;border-radius:22px}
+.profile-frame img{width:100%;aspect-ratio:.96;object-fit:cover}
+
+.profile-overlay{
+  position:absolute;left:12px;right:12px;bottom:12px;padding:14px 15px;border-radius:17px;
+  background:rgba(4,9,7,.82);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(15px);
+}
+
+.profile-overlay strong{display:block;margin-bottom:4px;font-size:.9rem}
+.profile-overlay span{color:#9cad9f;font-size:.72rem}
+
+.flow-map{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+}
+
+.flow-node{
+  position:absolute;z-index:7;min-width:145px;padding:12px 13px;border-radius:16px;
+  background:rgba(5,13,10,.94);border:1px solid rgba(255,255,255,.11);
+  box-shadow:0 18px 45px rgba(0,0,0,.34);backdrop-filter:blur(14px);
+}
+
+.flow-node small{
+  display:block;color:var(--muted);font-family:"DM Mono",monospace;font-size:.58rem;
+  text-transform:uppercase;letter-spacing:.09em;margin-bottom:4px;
+}
+
+.flow-node strong{font-size:.86rem}
+.flow-node::after{
+  content:"";position:absolute;width:58px;height:1px;top:50%;
+  background:linear-gradient(90deg,rgba(184,255,92,.7),transparent);
+}
+
+.flow-node.n1{top:66px;left:-6px;animation:float1 5s ease-in-out infinite}
+.flow-node.n1::after{right:-58px}
+
+.flow-node.n2{top:85px;right:-12px;animation:float2 5.4s ease-in-out infinite}
+.flow-node.n2::after{left:-58px;transform:rotate(180deg)}
+
+.flow-node.n3{bottom:112px;left:-35px;animation:float3 5.8s ease-in-out infinite}
+.flow-node.n3::after{right:-58px}
+
+.flow-node.n4{bottom:80px;right:-26px;animation:float4 5.2s ease-in-out infinite}
+.flow-node.n4::after{left:-58px;transform:rotate(180deg)}
+
+@keyframes float1{50%{transform:translateY(-10px)}}
+@keyframes float2{50%{transform:translate(5px,8px)}}
+@keyframes float3{50%{transform:translate(-5px,-8px)}}
+@keyframes float4{50%{transform:translateY(9px)}}
+
+.flow-ring{
+  position:absolute;border-radius:50%;border:1px solid rgba(184,255,92,.07);pointer-events:none;
+}
+
+.flow-ring.one{width:540px;height:540px;animation:spin 32s linear infinite}
+.flow-ring.two{width:430px;height:430px;border-style:dashed;border-color:rgba(105,221,255,.08);animation:spinReverse 26s linear infinite}
+.flow-ring.three{width:335px;height:335px;border-color:rgba(172,145,255,.07);animation:spin 20s linear infinite}
+
+.flow-ring.one::before,.flow-ring.two::before,.flow-ring.three::before{
+  content:"";position:absolute;width:8px;height:8px;border-radius:50%;
+}
+
+.flow-ring.one::before{right:11%;top:13%;background:var(--lime);box-shadow:0 0 20px rgba(184,255,92,.7)}
+.flow-ring.two::before{left:8%;bottom:18%;background:var(--cyan);box-shadow:0 0 20px rgba(105,221,255,.65)}
+.flow-ring.three::before{right:4%;bottom:30%;background:var(--violet)}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinReverse{to{transform:rotate(-360deg)}}
+
+/* =========================================================
+   SUPPLY CHAIN PIPELINE STRIP
+========================================================= */
+.pipeline-wrap{padding:4px 0 0}
+.pipeline{
+  overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.014);
+}
+
+.pipeline-track{
+  width:max-content;display:flex;align-items:center;gap:0;padding:15px 0;animation:marquee 30s linear infinite;
+}
+
+.pipeline-set{display:flex;align-items:center;white-space:nowrap}
+
+.pipe-item{
+  display:flex;align-items:center;gap:10px;padding:0 20px;color:#9eb2a8;
+  font-size:.69rem;font-weight:800;letter-spacing:.075em;text-transform:uppercase;
+}
+
+.pipe-index{
+  color:var(--lime);font-family:"DM Mono",monospace;font-size:.6rem;
+}
+
+.pipe-arrow{color:#456159;margin-left:2px}
+
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* =========================================================
+   IMPACT METRICS
+========================================================= */
+.metrics-section{padding:38px 0 70px}
+
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);overflow:hidden;border-radius:29px;
+}
+
+.metric{padding:24px 19px}
+.metric + .metric{border-left:1px solid var(--line)}
+
+.metric small{
+  color:var(--muted);font-size:.59rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+}
+
+.metric strong{
+  display:block;margin:8px 0 5px;font-family:"Manrope",sans-serif;
+  font-size:clamp(1.8rem,2.7vw,2.65rem);font-weight:800;letter-spacing:-.06em;color:var(--lime);
+}
+
+.metric:nth-child(2) strong{color:var(--mint)}
+.metric:nth-child(3) strong{color:var(--cyan)}
+.metric:nth-child(4) strong{color:var(--amber)}
+.metric:nth-child(5) strong{color:var(--violet)}
+
+.metric p{margin:0;color:#8fa49a;line-height:1.42;font-size:.7rem}
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+.section-head{
+  margin-bottom:40px;display:grid;grid-template-columns:55px minmax(0,1fr) minmax(0,370px);
+  gap:24px;align-items:end;
+}
+
+.section-number{
+  color:#587066;font-family:"DM Mono",monospace;font-size:.72rem;font-weight:800;letter-spacing:.13em;
+}
+
+.section-main h2{
+  margin:0;font-family:"Manrope",sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);
+  font-weight:800;line-height:.94;letter-spacing:-.062em;
+}
+
+.section-main h2 span{color:var(--lime)}
+.section-tagline{margin:10px 0 0;color:#a8bbb2;font-size:clamp(.9rem,1.2vw,1.02rem)}
+.section-summary{margin:0;color:var(--muted);line-height:1.62;font-size:.84rem}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+
+.about-main{
+  position:relative;overflow:hidden;min-height:360px;padding:30px;border-radius:31px;
+}
+
+.about-main::after{
+  content:"";position:absolute;width:330px;height:330px;right:-120px;bottom:-145px;border-radius:50%;
+  background:var(--cyan);filter:blur(110px);opacity:.06;
+}
+
+.about-main h3{
+  position:relative;z-index:2;max-width:700px;margin:0 0 15px;font-family:"Manrope",sans-serif;
+  font-size:clamp(1.7rem,3vw,2.55rem);line-height:1.08;letter-spacing:-.045em;
+}
+
+.about-main p{position:relative;z-index:2;max-width:740px;margin:0;color:var(--soft);line-height:1.72;font-size:.89rem}
+
+.about-side{display:grid;gap:16px}
+.about-card{padding:23px;border-radius:26px;transition:.24s ease}
+.about-card:hover{transform:translateY(-5px);border-color:rgba(184,255,92,.22)}
+.about-number{display:block;margin-bottom:9px;color:var(--lime);font-family:"Manrope",sans-serif;font-size:2.8rem;font-weight:800;line-height:1}
+.about-card strong{display:block;margin-bottom:7px}
+.about-card p{margin:0;color:var(--muted);line-height:1.55;font-size:.78rem}
+
+/* =========================================================
+   SUPPLY CHAIN EXPERTISE
+========================================================= */
+.chain-grid{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:14px;
+}
+
+.chain-card{
+  position:relative;overflow:hidden;padding:23px;min-height:210px;border-radius:27px;transition:.24s ease;
+}
+
+.chain-card:hover{transform:translateY(-6px);border-color:rgba(184,255,92,.22)}
+.chain-card.wide{grid-column:span 6}
+.chain-card.third{grid-column:span 4}
+
+.chain-code{
+  width:44px;height:44px;display:grid;place-items:center;margin-bottom:17px;border-radius:14px;
+  color:var(--lime);background:rgba(184,255,92,.065);border:1px solid rgba(184,255,92,.13);
+  font-family:"DM Mono",monospace;font-size:.66rem;font-weight:800;
+}
+
+.chain-card h3{margin:0 0 13px;font-family:"Manrope",sans-serif;font-size:1rem}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+
+.chip{
+  padding:7px 9px;border:1px solid rgba(255,255,255,.09);border-radius:999px;
+  background:rgba(255,255,255,.032);color:#bdcec5;font-size:.68rem;transition:.2s ease;
+}
+
+.chip:hover{color:white;transform:translateY(-2px);border-color:rgba(184,255,92,.22)}
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+.timeline{position:relative;display:grid;gap:19px}
+
+.timeline::before{
+  content:"";position:absolute;top:40px;bottom:40px;left:18px;width:1px;
+  background:linear-gradient(var(--lime),var(--mint),var(--cyan),var(--violet));opacity:.4;
+}
+
+.role{
+  position:relative;margin-left:53px;padding:25px;display:grid;
+  grid-template-columns:210px 1fr 135px;gap:25px;border-radius:29px;transition:.24s ease;
+}
+
+.role:hover{transform:translateX(5px);border-color:rgba(184,255,92,.22)}
+.role::before{
+  content:"";position:absolute;left:-40px;top:34px;width:13px;height:13px;border-radius:50%;
+  background:var(--lime);border:3px solid var(--bg);
+}
+
+.role:nth-child(2)::before{background:var(--cyan)}
+.role:nth-child(3)::before{background:var(--violet)}
+
+.role-date{color:var(--lime);font-size:.74rem;font-weight:800}
+.role-company{margin-top:7px;color:white;font-weight:800}
+.role-location{margin-top:3px;color:var(--muted);font-size:.76rem}
+
+.role-main h3{margin:0 0 11px;font-family:"Manrope",sans-serif;font-size:1.15rem;letter-spacing:-.025em}
+.role-main ul{margin:0;padding-left:18px;color:#b8cbc1;line-height:1.63;font-size:.82rem}
+.role-main li + li{margin-top:6px}
+
+.role-impact{
+  align-self:start;padding:12px 10px;border-radius:17px;text-align:center;
+  background:rgba(255,255,255,.035);border:1px solid var(--line);
+  color:#94a99f;font-size:.64rem;line-height:1.4;
+}
+
+.role-impact strong{
+  display:block;margin-bottom:3px;color:var(--lime);font-family:"Manrope",sans-serif;
+  font-size:1.42rem;font-weight:800;
+}
+
+/* =========================================================
+   SYSTEMS TOOLBOX
+========================================================= */
+.systems{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+
+.system-panel{padding:26px;border-radius:29px}
+.system-label{
+  color:var(--lime);font-family:"DM Mono",monospace;font-size:.61rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;
+}
+.system-panel h3{margin:9px 0 15px;font-family:"Manrope",sans-serif;font-size:1.3rem}
+.system-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+
+.system-item{
+  padding:12px;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.027);
+}
+
+.system-item strong{display:block;font-size:.8rem}
+.system-item span{display:block;margin-top:4px;color:var(--muted);font-size:.68rem;line-height:1.4}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+.projects{display:grid;gap:28px}
+
+.project{
+  position:relative;overflow:hidden;padding:28px;border-radius:36px;
+}
+
+.project::before{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;padding:1px;
+  background:linear-gradient(135deg,rgba(184,255,92,.28),transparent 30%,transparent 68%,rgba(105,221,255,.19));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+
+.project-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:30px;align-items:start}
+
+.project-number{
+  display:block;margin-bottom:10px;color:#5f766b;font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.11em;font-weight:750;
+}
+
+.project-tag{
+  display:inline-flex;margin-bottom:13px;padding:7px 10px;border-radius:999px;color:var(--lime);
+  background:rgba(184,255,92,.045);border:1px solid rgba(184,255,92,.12);
+  font-size:.58rem;font-weight:850;text-transform:uppercase;letter-spacing:.11em;
+}
+
+.project h3{
+  margin:0 0 11px;font-family:"Manrope",sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);letter-spacing:-.045em;
+}
+
+.project p{margin:0;color:#b9cbc2;line-height:1.65;font-size:.84rem}
+
+.project-points{display:grid;gap:9px;margin:17px 0}
+.project-point{display:flex;gap:9px;color:#d2dfd8;font-size:.78rem;line-height:1.45}
+.project-point::before{content:"";width:6px;height:6px;flex:0 0 6px;margin-top:6px;border-radius:50%;background:var(--lime)}
+.project-actions{margin-top:17px}
+
+/* CAROUSELS */
+.carousel{position:relative;padding:10px;border-radius:24px;background:rgba(0,0,0,.15);border:1px solid var(--line)}
+.carousel-stage{position:relative;overflow:hidden;border-radius:18px;aspect-ratio:16/9;background:#08110e}
+.carousel-image{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  transform:scale(1.03);transition:opacity .6s ease,transform .7s ease;cursor:pointer;
+}
+.carousel-image.active{opacity:1;transform:scale(1)}
+.carousel-overlay{
+  position:absolute;left:10px;right:10px;bottom:10px;z-index:10;display:flex;align-items:center;
+  justify-content:space-between;gap:10px;padding:9px 11px;border-radius:14px;
+  background:rgba(4,9,7,.76);border:1px solid rgba(255,255,255,.11);backdrop-filter:blur(12px);
+}
+.carousel-title{color:#e0eee7;font-size:.71rem}
+.carousel-count{color:var(--lime);font-size:.66rem;font-weight:800}
+.carousel-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}
+.carousel-thumb{
+  padding:0;overflow:hidden;border:1px solid var(--line);border-radius:11px;cursor:pointer;
+  background:none;opacity:.55;transition:.2s ease;
+}
+.carousel-thumb.active{opacity:1;border-color:rgba(184,255,92,.45)}
+.carousel-thumb:hover{opacity:1;transform:translateY(-2px)}
+.carousel-thumb img{width:100%;height:65px;object-fit:cover}
+
+/* =========================================================
+   ERP MINI PROJECTS
+========================================================= */
+.erp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.erp-card{padding:24px;border-radius:27px;transition:.24s ease}
+.erp-card:hover{transform:translateY(-5px);border-color:rgba(184,255,92,.22)}
+.erp-card h3{margin:0 0 10px;font-family:"Manrope",sans-serif;font-size:1.15rem}
+.erp-card p{margin:0 0 16px;color:#b9cbc2;line-height:1.6;font-size:.81rem}
+
+/* =========================================================
+   CERTIFICATIONS + LEARNING
+========================================================= */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+.cert{padding:12px;border-radius:24px;transition:.24s ease}
+.cert:hover{transform:translateY(-6px);border-color:rgba(184,255,92,.22)}
+.cert-button{width:100%;padding:0;border:0;overflow:hidden;border-radius:16px;background:white;cursor:pointer}
+.cert-button img{width:100%;height:170px;object-fit:cover;transition:transform .32s ease}
+.cert:hover .cert-button img{transform:scale(1.035)}
+
+.cert-pdf-preview{position:relative;width:100%;height:170px;overflow:hidden;background:white}
+.cert-pdf-preview iframe{width:100%;height:100%;border:0;pointer-events:none;background:white}
+.cert-pdf-preview::after{content:"";position:absolute;inset:0;pointer-events:none}
+
+.cert-content{padding:15px 6px 7px}
+.cert-content h3{margin:0 0 5px;font-family:"Manrope",sans-serif;font-size:.9rem;line-height:1.3}
+.cert-content p{margin:0;color:var(--muted);font-size:.71rem}
+
+.learning-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.learning-card{padding:20px;border-radius:22px}
+.learning-card small{
+  display:block;color:var(--lime);font-family:"DM Mono",monospace;font-size:.58rem;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px;
+}
+.learning-card strong{display:block;font-size:.9rem;margin-bottom:6px}
+.learning-card p{margin:0;color:var(--muted);font-size:.72rem;line-height:1.48}
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+.education-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:15px}
+.education-card{padding:27px;border-radius:29px}
+.education-label{color:var(--lime);font-size:.62rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.education-card h3{margin:9px 0 6px;font-family:"Manrope",sans-serif;font-size:1.16rem}
+.education-card p{margin:0;color:var(--muted);line-height:1.55;font-size:.81rem}
+.divider{height:1px;margin:21px 0;background:var(--line)}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+.contact-box{position:relative;overflow:hidden;padding:38px;border-radius:37px}
+.contact-box::after{
+  content:"";position:absolute;width:480px;height:480px;right:-180px;top:-260px;border-radius:50%;
+  background:var(--lime);filter:blur(140px);opacity:.06;
+}
+
+.contact-grid{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:34px}
+.contact-copy h3{
+  margin:0 0 13px;font-family:"Manrope",sans-serif;font-size:clamp(2.3rem,4.6vw,4.1rem);
+  line-height:.97;letter-spacing:-.06em;
+}
+.contact-copy h3 span{color:var(--lime)}
+.contact-copy p{max-width:470px;margin:0;color:var(--soft);line-height:1.65;font-size:.84rem}
+
+.contact-links{margin-top:21px;display:grid;gap:8px}
+.contact-link{
+  padding:12px 14px;display:flex;align-items:center;justify-content:space-between;
+  border:1px solid var(--line);border-radius:14px;color:#d3e1da;background:rgba(255,255,255,.03);
+  font-size:.78rem;transition:.2s ease;
+}
+.contact-link:hover{transform:translateX(4px);background:rgba(255,255,255,.055)}
+.contact-link span:last-child{color:var(--lime)}
+
+.contact-form{padding:22px;border-radius:24px;border:1px solid var(--line);background:rgba(0,0,0,.13)}
+.field{display:grid;gap:6px;margin-bottom:12px}
+.field label{color:#d8e5de;font-size:.74rem;font-weight:700}
+.field input,.field textarea{
+  width:100%;padding:13px 14px;border:1px solid rgba(255,255,255,.095);border-radius:13px;
+  background:rgba(0,0,0,.18);color:white;outline:none;transition:.2s ease;
+}
+.field textarea{min-height:125px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:rgba(184,255,92,.36);box-shadow:0 0 0 3px rgba(184,255,92,.035)}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer{padding:24px 0 45px}
+.footer{
+  padding-top:21px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  border-top:1px solid var(--line);color:#70877d;font-size:.69rem;
+}
+.footer strong{color:#a6b9af}
+
+/* =========================================================
+   MODALS
+========================================================= */
+.modal{
+  position:fixed;inset:0;z-index:700;display:none;align-items:center;justify-content:center;padding:20px;
+  background:rgba(0,0,0,.84);backdrop-filter:blur(14px);
+}
+.modal.show{display:flex;animation:modalFade .2s ease}
+@keyframes modalFade{from{opacity:0}to{opacity:1}}
+
+.modal-card{
+  position:relative;width:min(1000px,95vw);max-height:91vh;overflow:auto;padding:19px;border-radius:29px;
+  animation:modalRise .28s ease;
+}
+@keyframes modalRise{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+
+.close-btn{
+  position:absolute;top:13px;right:13px;z-index:5;width:42px;height:42px;border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;background:rgba(3,7,5,.84);cursor:pointer;
+}
+
+.modal-title{margin:0 52px 14px 2px}
+.modal-img{width:100%;max-height:78vh;object-fit:contain;border-radius:18px}
+.resume-note{margin:0 52px 14px 2px;color:var(--muted);font-size:.79rem}
+.resume-frame{width:100%;height:65vh;border:0;border-radius:17px;background:white}
+.resume-actions{margin-top:12px;display:flex;gap:9px;flex-wrap:wrap}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+.reveal{
+  opacity:0;transform:translateY(27px) scale(.992);filter:blur(4px);
+  transition:opacity .72s cubic-bezier(.2,.8,.2,1),transform .72s cubic-bezier(.2,.8,.2,1),filter .72s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.show{opacity:1;transform:none;filter:blur(0)}
+
+
+
+/* =========================================================
+   VISUAL STORYTELLING ENHANCEMENTS
+========================================================= */
+.story-board{
+  position:relative;
+  min-height:390px;
+  padding:24px;
+  border-radius:31px;
+  overflow:hidden;
+}
+
+.story-board::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(184,255,92,.08),transparent 28%),
+    radial-gradient(circle at 82% 78%,rgba(105,221,255,.07),transparent 28%);
+  pointer-events:none;
+}
+
+.story-kicker{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:22px;
+  color:#9db2a8;
+  font-family:"DM Mono",monospace;
+  font-size:.62rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.story-status{
+  color:#e9ffd4;
+  padding:6px 9px;
+  border:1px solid rgba(184,255,92,.15);
+  border-radius:999px;
+  background:rgba(184,255,92,.05);
+}
+
+.decision-loop{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:8px;
+}
+
+.decision-node{
+  position:relative;
+  min-height:118px;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:19px;
+  background:rgba(255,255,255,.025);
+  transition:.22s ease;
+}
+
+.decision-node:hover{
+  transform:translateY(-4px);
+  border-color:rgba(184,255,92,.25);
+}
+
+.decision-node small{
+  display:block;
+  margin-bottom:8px;
+  color:var(--lime);
+  font-family:"DM Mono",monospace;
+  font-size:.58rem;
+  letter-spacing:.09em;
+}
+
+.decision-node strong{
+  display:block;
+  margin-bottom:5px;
+  font-size:.88rem;
+}
+
+.decision-node span{
+  color:var(--muted);
+  font-size:.68rem;
+  line-height:1.45;
+}
+
+.decision-node::after{
+  content:"→";
+  position:absolute;
+  right:-13px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--lime);
+  opacity:.55;
+}
+
+.decision-node:nth-child(3)::after,
+.decision-node:nth-child(6)::after{
+  display:none;
+}
+
+.visual-summary{
+  position:relative;
+  z-index:2;
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.visual-pill{
+  padding:12px 13px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.12);
+}
+
+.visual-pill strong{
+  display:block;
+  color:white;
+  font-size:.78rem;
+}
+
+.visual-pill span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.64rem;
+}
+
+/* EXPERIENCE AS VISUAL IMPACT CARDS */
+.role{
+  grid-template-columns:190px 1fr 165px;
+}
+
+.role-main ul{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px 14px;
+  padding:0;
+  list-style:none;
+}
+
+.role-main li{
+  position:relative;
+  margin:0!important;
+  padding:12px 12px 12px 31px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:rgba(255,255,255,.024);
+  line-height:1.48;
+}
+
+.role-main li::before{
+  content:"";
+  position:absolute;
+  left:13px;
+  top:18px;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--lime);
+  box-shadow:0 0 14px rgba(184,255,92,.35);
+}
+
+.impact-stack{
+  display:grid;
+  gap:8px;
+  align-self:start;
+}
+
+.impact-mini{
+  padding:11px 10px;
+  border-radius:15px;
+  text-align:center;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+}
+
+.impact-mini strong{
+  display:block;
+  color:var(--lime);
+  font-family:"Manrope",sans-serif;
+  font-size:1.25rem;
+  line-height:1;
+  margin-bottom:4px;
+}
+
+.impact-mini span{
+  color:var(--muted);
+  font-size:.59rem;
+  line-height:1.3;
+}
+
+/* VISUAL LABELS INSIDE SKILL CARDS */
+.chain-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,var(--lime),transparent 70%);
+  opacity:.8;
+}
+
+.chain-card:nth-child(2)::before{background:linear-gradient(90deg,var(--mint),transparent 70%)}
+.chain-card:nth-child(3)::before{background:linear-gradient(90deg,var(--amber),transparent 70%)}
+.chain-card:nth-child(4)::before{background:linear-gradient(90deg,var(--cyan),transparent 70%)}
+.chain-card:nth-child(5)::before{background:linear-gradient(90deg,var(--violet),transparent 70%)}
+
+.skill-meter{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.skill-meter span{
+  flex:1;
+  height:5px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+}
+
+.skill-meter i{
+  display:block;
+  width:var(--meter,70%);
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--lime),var(--mint));
+}
+
+.skill-meter small{
+  color:var(--muted);
+  font-family:"DM Mono",monospace;
+  font-size:.56rem;
+}
+
+/* FULL-PAGE RESUME MODAL */
+.resume-modal-card{
+  width:min(1180px,97vw);
+  height:min(94vh,980px);
+  max-height:94vh;
+  overflow:hidden;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+}
+
+.resume-modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:2px 52px 10px 4px;
+}
+
+.resume-modal-head h3{
+  margin:0;
+}
+
+.resume-modal-head p{
+  margin:2px 0 0;
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+.resume-full-frame{
+  flex:1;
+  width:100%;
+  min-height:0;
+  border:0;
+  border-radius:18px;
+  background:white;
+}
+
+.resume-full-actions{
+  display:flex;
+  gap:9px;
+  margin-top:10px;
+  flex:0 0 auto;
+}
+
+@media(max-width:1100px){
+  .role{grid-template-columns:175px 1fr}
+  .impact-stack{grid-column:2;grid-template-columns:repeat(3,1fr)}
+}
+
+@media(max-width:900px){
+  .decision-loop,.visual-summary{grid-template-columns:1fr 1fr}
+  .decision-node:nth-child(2)::after,
+  .decision-node:nth-child(4)::after{display:none}
+  .role-main ul{grid-template-columns:1fr}
+  .impact-stack{grid-column:auto;grid-template-columns:repeat(3,1fr)}
+}
+
+@media(max-width:650px){
+  .decision-loop,.visual-summary{grid-template-columns:1fr}
+  .decision-node::after{display:none!important}
+  .impact-stack{grid-template-columns:1fr 1fr}
+  .resume-modal-card{height:96vh;max-height:96vh;padding:10px}
+  .resume-full-actions{display:grid}
+}
+
+
+/* =========================================================
+   V4 — TARGETED VISUAL UPGRADES
+   Built on the V2 design the user preferred.
+========================================================= */
+
+/* HERO PORTRAIT */
+.hero-portrait-shell{
+  position:relative;
+  z-index:5;
+  width:330px;
+  padding:12px;
+  border-radius:34px;
+  text-align:center;
+  animation:profileFloat 6.5s ease-in-out infinite;
+}
+
+.portrait-status{
+  margin:3px auto 10px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#b9d0c4;
+  font-family:"DM Mono",monospace;
+  font-size:.58rem;
+  letter-spacing:.10em;
+}
+
+.status-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--lime);
+  box-shadow:0 0 0 5px rgba(184,255,92,.06);
+}
+
+.hero-portrait-frame{
+  overflow:hidden;
+  border-radius:25px;
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.hero-portrait-frame img{
+  width:100%;
+  aspect-ratio:.92;
+  object-fit:cover;
+}
+
+.hero-portrait-copy{
+  padding:12px 8px 5px;
+}
+
+.hero-portrait-copy strong{
+  display:block;
+  font-size:.9rem;
+}
+
+.hero-portrait-copy span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.66rem;
+}
+
+.hero-route{
+  position:absolute;
+  z-index:8;
+  min-width:126px;
+  padding:11px 12px;
+  border-radius:16px;
+  background:rgba(5,13,10,.94);
+  border:1px solid rgba(255,255,255,.11);
+  box-shadow:0 18px 45px rgba(0,0,0,.33);
+  backdrop-filter:blur(14px);
+}
+
+.hero-route small{
+  display:block;
+  color:var(--lime);
+  font-family:"DM Mono",monospace;
+  font-size:.55rem;
+  margin-bottom:3px;
+}
+
+.hero-route strong{
+  font-size:.8rem;
+}
+
+.route-one{top:95px;left:0;animation:float1 5s ease-in-out infinite}
+.route-two{top:84px;right:0;animation:float2 5.3s ease-in-out infinite}
+.route-three{bottom:128px;left:-12px;animation:float3 5.7s ease-in-out infinite}
+.route-four{bottom:112px;right:-4px;animation:float4 5.1s ease-in-out infinite}
+
+.hero-flow-label{
+  position:absolute;
+  bottom:34px;
+  z-index:8;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 12px;
+  border-radius:999px;
+  color:#aac0b5;
+  background:rgba(4,10,8,.78);
+  border:1px solid var(--line);
+  font-family:"DM Mono",monospace;
+  font-size:.56rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.hero-flow-label i{
+  color:var(--lime);
+  font-style:normal;
+}
+
+/* ABOUT + SUPPLY CHAIN MERGE */
+.about-focus-grid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+}
+
+.about-focus-card{
+  padding:13px;
+  border-radius:16px;
+  background:rgba(255,255,255,.028);
+  border:1px solid var(--line);
+}
+
+.focus-icon{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  margin-bottom:9px;
+  border-radius:11px;
+  color:var(--lime);
+  background:rgba(184,255,92,.06);
+  border:1px solid rgba(184,255,92,.12);
+  font-family:"DM Mono",monospace;
+  font-size:.56rem;
+  font-weight:700;
+}
+
+.about-focus-card strong{
+  display:block;
+  font-size:.78rem;
+}
+
+.about-focus-card small{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.61rem;
+  line-height:1.35;
+}
+
+/* SYSTEMS CONSTELLATION */
+.systems-constellation{
+  position:relative;
+  min-height:590px;
+  overflow:hidden;
+  border-radius:34px;
+}
+
+.systems-constellation::before,
+.systems-constellation::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+
+.systems-constellation::before{
+  width:440px;
+  height:440px;
+  border:1px dashed rgba(184,255,92,.10);
+}
+
+.systems-constellation::after{
+  width:295px;
+  height:295px;
+  border:1px solid rgba(105,221,255,.08);
+}
+
+.systems-center{
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:5;
+  width:190px;
+  height:190px;
+  transform:translate(-50%,-50%);
+  display:grid;
+  align-content:center;
+  justify-items:center;
+  padding:20px;
+  border-radius:50%;
+  text-align:center;
+  background:
+    radial-gradient(circle at 35% 30%,rgba(184,255,92,.14),transparent 42%),
+    rgba(6,15,12,.95);
+  border:1px solid rgba(184,255,92,.20);
+  box-shadow:0 0 80px rgba(184,255,92,.06);
+}
+
+.systems-center small{
+  color:var(--lime);
+  font-family:"DM Mono",monospace;
+  font-size:.56rem;
+  letter-spacing:.1em;
+}
+
+.systems-center strong{
+  margin:7px 0;
+  font-family:"Manrope",sans-serif;
+  font-size:1.45rem;
+}
+
+.systems-center span{
+  color:var(--muted);
+  font-size:.67rem;
+}
+
+.system-orbit-card{
+  position:absolute;
+  z-index:6;
+  width:190px;
+  min-height:90px;
+  padding:13px;
+  border-radius:18px;
+  background:rgba(8,19,16,.94);
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 16px 40px rgba(0,0,0,.26);
+  transition:.22s ease;
+}
+
+.system-orbit-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(184,255,92,.25);
+}
+
+.system-badge{
+  width:31px;
+  height:31px;
+  display:grid;
+  place-items:center;
+  margin-bottom:8px;
+  border-radius:10px;
+  color:#071006;
+  background:linear-gradient(135deg,var(--lime),var(--mint));
+  font-family:"DM Mono",monospace;
+  font-size:.53rem;
+  font-weight:800;
+}
+
+.system-orbit-card strong{
+  display:block;
+  font-size:.78rem;
+}
+
+.system-orbit-card small{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.61rem;
+  line-height:1.35;
+}
+
+.s1{left:6%;top:9%}
+.s2{left:34%;top:5%}
+.s3{right:6%;top:10%}
+.s4{right:5%;top:41%}
+.s5{right:9%;bottom:8%}
+.s6{left:36%;bottom:5%}
+.s7{left:6%;bottom:9%}
+.s8{left:4%;top:42%}
+
+.systems-line{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:330px;
+  height:1px;
+  transform-origin:left center;
+  background:linear-gradient(90deg,rgba(184,255,92,.20),transparent);
+  opacity:.55;
+}
+
+.line-a{transform:rotate(15deg)}
+.line-b{transform:rotate(105deg)}
+.line-c{transform:rotate(195deg)}
+.line-d{transform:rotate(285deg)}
+
+/* EDUCATION */
+.education-path{
+  display:grid;
+  grid-template-columns:1fr 90px 1fr;
+  align-items:stretch;
+  gap:14px;
+}
+
+.education-school{
+  min-height:265px;
+  padding:23px;
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:20px;
+  align-items:center;
+  border-radius:29px;
+}
+
+.school-logo-wrap{
+  min-height:125px;
+  display:grid;
+  place-items:center;
+  padding:12px;
+  border-radius:20px;
+  background:white;
+}
+
+.school-logo-wrap img{
+  width:100%;
+  max-height:130px;
+  object-fit:contain;
+}
+
+.school-logo-wrap.csu-logo{
+  background:#006f51;
+}
+
+.school-copy h3{
+  margin:9px 0 8px;
+  font-family:"Manrope",sans-serif;
+  font-size:1.05rem;
+  line-height:1.3;
+}
+
+.school-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:.79rem;
+  line-height:1.55;
+}
+
+.school-copy p strong{
+  color:#d9e8e0;
+}
+
+.education-bridge{
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:8px;
+}
+
+.education-bridge span{
+  width:1px;
+  height:65px;
+  background:linear-gradient(transparent,var(--lime));
+}
+
+.education-bridge span:last-child{
+  background:linear-gradient(var(--lime),transparent);
+}
+
+.education-bridge strong{
+  color:var(--lime);
+  font-size:1.25rem;
+}
+
+/* CONTACT */
+.contact-button{
+  width:100%;
+  cursor:pointer;
+  text-align:left;
+  font:inherit;
+}
+
+.copy-state{
+  min-width:18px;
+  text-align:center;
+}
+
+/* RESUME */
+.resume-modal-card{
+  width:min(1180px,97vw);
+  height:min(94vh,1100px);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.resume-full-frame{
+  flex:1;
+  width:100%;
+  min-height:0;
+  border:0;
+  border-radius:18px;
+  background:white;
+}
+
+.resume-full-actions{
+  flex:0 0 auto;
+  margin-top:12px;
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+@media(max-width:900px){
+  .about-focus-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .systems-constellation{
+    min-height:auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .systems-constellation::before,
+  .systems-constellation::after,
+  .systems-line{
+    display:none;
+  }
+
+  .systems-center,
+  .system-orbit-card{
+    position:static;
+    width:auto;
+    min-height:auto;
+    transform:none;
+  }
+
+  .systems-center{
+    grid-column:1/-1;
+    height:auto;
+    border-radius:22px;
+  }
+
+  .education-path{
+    grid-template-columns:1fr;
+  }
+
+  .education-bridge{
+    grid-template-columns:1fr auto 1fr;
+  }
+
+  .education-bridge span{
+    width:auto;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--lime));
+  }
+
+  .education-bridge span:last-child{
+    background:linear-gradient(90deg,var(--lime),transparent);
+  }
+}
+
+@media(max-width:650px){
+  .hero-portrait-shell{
+    width:min(320px,86vw);
+  }
+
+  .hero-route,
+  .hero-flow-label{
+    display:none;
+  }
+
+  .about-focus-grid,
+  .systems-constellation{
+    grid-template-columns:1fr;
+  }
+
+  .systems-center{
+    grid-column:auto;
+  }
+
+  .education-school{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .school-logo-wrap{
+    width:min(180px,100%);
+    margin:auto;
+  }
+
+  .resume-modal-card{
+    width:97vw;
+    height:94vh;
+  }
+
+  .resume-full-actions{
+    display:grid;
+  }
+}
+
+
+
+/* =========================================================
+   V5 — CLEAN ABOUT + FULL-PAGE RESUME
+========================================================= */
+
+.about-clean-grid{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:16px;
+}
+
+.about-clean-main{
+  padding:30px;
+  border-radius:31px;
+}
+
+.about-clean-kicker{
+  margin-bottom:12px;
+  color:var(--lime);
+  font-family:"DM Mono",monospace;
+  font-size:.61rem;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+
+.about-clean-main h3{
+  max-width:760px;
+  margin:0 0 14px;
+  font-family:"Manrope",sans-serif;
+  font-size:clamp(1.7rem,3vw,2.45rem);
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+
+.about-clean-main p{
+  max-width:770px;
+  margin:0;
+  color:var(--soft);
+  line-height:1.7;
+  font-size:.88rem;
+}
+
+.about-flow{
+  margin-top:26px;
+  display:grid;
+  grid-template-columns:
+    minmax(105px,1fr) auto
+    minmax(105px,1fr) auto
+    minmax(105px,1fr) auto
+    minmax(105px,1fr) auto
+    minmax(105px,1fr);
+  gap:8px;
+  align-items:center;
+}
+
+.about-flow-step{
+  padding:15px 12px;
+  border-radius:17px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--line);
+}
+
+.about-flow-step span{
+  display:block;
+  margin-bottom:7px;
+  color:var(--lime);
+  font-family:"DM Mono",monospace;
+  font-size:.56rem;
+}
+
+.about-flow-step strong{
+  display:block;
+  font-size:.8rem;
+}
+
+.about-flow-step small{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.61rem;
+  line-height:1.35;
+}
+
+.about-flow-arrow{
+  color:var(--lime);
+  font-size:1rem;
+  opacity:.8;
+}
+
+.about-clean-side{
+  display:grid;
+  gap:16px;
+}
+
+.about-clean-stat{
+  min-height:125px;
+  padding:21px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border-radius:25px;
+}
+
+.about-clean-stat span{
+  color:var(--lime);
+  font-family:"Manrope",sans-serif;
+  font-size:1.65rem;
+  font-weight:800;
+  letter-spacing:-.05em;
+}
+
+.about-clean-stat strong{
+  margin-top:2px;
+  font-size:.85rem;
+}
+
+.about-clean-stat small{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:.68rem;
+  line-height:1.4;
+}
+
+#resumeModal{
+  padding:8px;
+}
+
+.resume-modal-card{
+  width:min(1180px,98vw);
+  height:97vh;
+  max-height:97vh;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.resume-modal-card .modal-title{
+  flex:0 0 auto;
+  margin:0 52px 8px 4px;
+}
+
+.resume-full-frame{
+  flex:1 1 auto;
+  width:100%;
+  min-height:0;
+  border:0;
+  border-radius:18px;
+  background:white;
+  overflow:hidden;
+}
+
+.resume-full-actions{
+  flex:0 0 auto;
+  margin-top:9px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.resume-full-actions .btn{
+  min-width:165px;
+}
+
+@media(max-width:900px){
+  .about-clean-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-clean-side{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .about-flow{
+    grid-template-columns:1fr;
+  }
+
+  .about-flow-arrow{
+    transform:rotate(90deg);
+    justify-self:center;
+  }
+}
+
+@media(max-width:650px){
+  .about-clean-main,
+  .about-clean-stat{
+    padding:19px;
+    border-radius:23px;
+  }
+
+  .about-clean-side{
+    grid-template-columns:1fr;
+  }
+
+  .resume-modal-card{
+    width:98vw;
+    height:97vh;
+  }
+
+  .resume-full-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .resume-full-actions .btn{
+    min-width:0;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media(max-width:1100px){
+  .metrics-grid{grid-template-columns:repeat(3,1fr)}
+  .metric:nth-child(4),.metric:nth-child(5){border-top:1px solid var(--line)}
+  .metric:nth-child(4){border-left:0}
+  .role{grid-template-columns:190px 1fr}
+  .role-impact{grid-column:2;width:max-content}
+  .chain-card.wide,.chain-card.third{grid-column:span 6}
+}
+
+@media(max-width:900px){
+  section{padding:72px 0}
+  .navbar{top:9px}
+  .nav-inner{border-radius:20px}
+  .menu-btn{display:grid}
+  .nav-links{
+    position:absolute;top:63px;left:3vw;right:3vw;display:none;flex-direction:column;align-items:stretch;
+    padding:10px;border-radius:19px;background:rgba(5,10,9,.98);border:1px solid var(--line);box-shadow:var(--shadow);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a,.nav-links button{width:100%;padding:13px;text-align:left}
+
+  .hero{min-height:auto;padding:125px 0 65px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-stage{min-height:560px}
+
+  .section-head{grid-template-columns:45px 1fr}
+  .section-summary{grid-column:2}
+
+  .about-grid,.project-grid,.education-grid,.contact-grid,.systems{grid-template-columns:1fr}
+  .role{grid-template-columns:1fr}
+  .role-impact{grid-column:auto}
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .learning-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:650px){
+  .wrap{width:92vw}
+  section{padding:58px 0}
+  .brand-name{max-width:180px}
+  .hero{padding-top:105px}
+  .hero h1{font-size:clamp(3rem,15vw,4.6rem)}
+  .focus-line{flex-direction:column;align-items:flex-start}
+  .hero-actions{display:grid}
+  .hero-actions .btn{width:100%}
+  .hero-stage{min-height:auto}
+  .flow-ring,.flow-node{display:none}
+
+  .metrics-grid{grid-template-columns:1fr 1fr}
+  .metric{padding:18px 13px}
+  .metric:nth-child(3),.metric:nth-child(5){border-left:0}
+  .metric:nth-child(3){border-top:1px solid var(--line)}
+
+  .section-head{grid-template-columns:1fr;gap:8px}
+  .section-summary{grid-column:auto}
+  .section-main h2{font-size:2.3rem}
+
+  .about-main,.about-card,.role,.chain-card,.project,.erp-card,.education-card,.contact-box{padding:19px;border-radius:23px}
+  .timeline::before{left:7px}
+  .role{margin-left:28px}
+  .role::before{left:-27px}
+
+  .chain-grid{grid-template-columns:1fr}
+  .chain-card.wide,.chain-card.third{grid-column:auto}
+  .project-grid{gap:23px}
+  .carousel-thumb img{height:48px}
+  .erp-grid,.cert-grid{grid-template-columns:1fr}
+  .cert-button img{height:215px}
+  .system-list{grid-template-columns:1fr}
+  .footer{flex-direction:column;align-items:flex-start}
+  .resume-frame{height:58vh}
+  .resume-actions{display:grid}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="noise"></div>
+<div class="grid-bg"></div>
+<div class="scanline"></div>
+<div class="ambient a"></div>
+<div class="ambient b"></div>
+<div class="ambient c"></div>
+<div class="cursor-light" id="cursorLight"></div>
+
+<!-- ======================================================
+     NAVIGATION
+======================================================= -->
+<nav class="navbar">
+  <div class="nav-inner">
+
+    <a class="brand" href="#home">
+      <span class="brand-mark">SD</span>
+      <span class="brand-name">Sai Deekshitha Reddy</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <button class="resume-nav" onclick="openResumeModal()">Resume</button>
+    </div>
+
+  </div>
+</nav>
+
+<main>
+
+<!-- ======================================================
+     HERO
+======================================================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        Cleveland, OH • Supply Chain Analyst
+      </div>
+
+      <p class="hero-name">
+        Sai Deekshitha Reddy Palpunoori
+      </p>
+
+      <h1>
+        From demand signals
+        <span class="hero-gradient">to delivery.</span>
+      </h1>
+
+      <div class="focus-line">
+        <span>Connecting</span>
+        <strong class="focus-switch" id="focusSwitch">
+          Demand Planning
+        </strong>
+        <span>with smarter decisions.</span>
+      </div>
+
+      <p class="hero-copy">
+        Supply Chain Analyst with <b>4+ years of experience</b> across
+        planning, inventory, procurement, logistics and operational analytics.
+        I connect <b>demand, supply, suppliers, inventory, transportation and ERP data</b>
+        to improve visibility, planning and execution.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">Explore Supply Chain Work ↗</a>
+        <a class="btn" href="#experience">View Experience</a>
+        <button class="btn" onclick="openResumeModal()">Resume</button>
+      </div>
+
+    </div>
+
+    <div class="hero-stage reveal">
+
+      <div class="flow-ring one"></div>
+      <div class="flow-ring two"></div>
+      <div class="flow-ring three"></div>
+
+      <div class="hero-portrait-shell glass" id="commandCard">
+
+        <div class="portrait-status">
+          <span class="status-dot"></span>
+          SUPPLY CHAIN PROFILE
+        </div>
+
+        <div class="hero-portrait-frame">
+          <img
+            src="profile picture.JPEG"
+            alt="Sai Deekshitha Reddy Palpunoori"
+          >
+        </div>
+
+        <div class="hero-portrait-copy">
+          <strong>Sai Deekshitha Reddy</strong>
+          <span>Planning • Inventory • Procurement • Logistics</span>
+        </div>
+
+      </div>
+
+      <div class="hero-route route-one">
+        <small>01</small>
+        <strong>Demand</strong>
+      </div>
+
+      <div class="hero-route route-two">
+        <small>02</small>
+        <strong>Planning</strong>
+      </div>
+
+      <div class="hero-route route-three">
+        <small>03</small>
+        <strong>Inventory</strong>
+      </div>
+
+      <div class="hero-route route-four">
+        <small>04</small>
+        <strong>Delivery</strong>
+      </div>
+
+      <div class="hero-flow-label">
+        <span>Sense</span>
+        <i>→</i>
+        <span>Plan</span>
+        <i>→</i>
+        <span>Source</span>
+        <i>→</i>
+        <span>Move</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     SUPPLY CHAIN FLOW
+======================================================= -->
+<div class="pipeline-wrap">
+  <div class="pipeline">
+    <div class="pipeline-track">
+
+      <div class="pipeline-set">
+        <div class="pipe-item"><span class="pipe-index">01</span> Demand Planning <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">02</span> S&OP <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">03</span> MRP <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">04</span> Procurement <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">05</span> Supplier Performance <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">06</span> Inventory <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">07</span> Logistics <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">08</span> Order Fulfillment <span class="pipe-arrow">→</span></div>
+      </div>
+
+      <div class="pipeline-set">
+        <div class="pipe-item"><span class="pipe-index">01</span> Demand Planning <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">02</span> S&OP <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">03</span> MRP <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">04</span> Procurement <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">05</span> Supplier Performance <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">06</span> Inventory <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">07</span> Logistics <span class="pipe-arrow">→</span></div>
+        <div class="pipe-item"><span class="pipe-index">08</span> Order Fulfillment <span class="pipe-arrow">→</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================
+     IMPACT METRICS
+======================================================= -->
+<section class="metrics-section">
+  <div class="wrap">
+    <div class="metrics-grid glass reveal">
+
+      <div class="metric">
+        <small>Shipment Data</small>
+        <strong class="counter" data-target="10" data-suffix="K+">0</strong>
+        <p>transportation records analyzed</p>
+      </div>
+
+      <div class="metric">
+        <small>Inventory</small>
+        <strong class="counter" data-target="2" data-suffix="K+">0</strong>
+        <p>SKUs evaluated with ABC, EOQ & safety stock</p>
+      </div>
+
+      <div class="metric">
+        <small>Purchase Orders</small>
+        <strong class="counter" data-target="1500" data-suffix="+">0</strong>
+        <p>POs and supplier commitments monitored</p>
+      </div>
+
+      <div class="metric">
+        <small>Planning Speed</small>
+        <strong class="counter" data-target="25" data-suffix="%">0</strong>
+        <p>reduction in planning preparation time</p>
+      </div>
+
+      <div class="metric">
+        <small>Delivery</small>
+        <strong class="counter" data-target="18" data-suffix="%">0</strong>
+        <p>improvement in delivery coordination</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     ABOUT + SUPPLY CHAIN
+======================================================= -->
+<section id="about">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">01</div>
+
+      <div class="section-main">
+        <h2>About<span>.</span></h2>
+        <p class="section-tagline">
+          Supply chain thinking backed by analytics.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        I connect planning, inventory, procurement, logistics and data to improve how decisions move through the business.
+      </p>
+    </div>
+
+    <div class="about-clean-grid">
+
+      <article class="about-clean-main glass reveal">
+
+        <div class="about-clean-kicker">
+          SUPPLY CHAIN FOCUS
+        </div>
+
+        <h3>
+          Turning operational data into clearer supply chain decisions.
+        </h3>
+
+        <p>
+          My experience spans demand planning, inventory, procurement,
+          supplier performance, transportation and operational analytics.
+          I use ERP systems and analytical tools to understand what is happening,
+          where the bottleneck is, and what action should come next.
+        </p>
+
+        <div class="about-flow">
+
+          <div class="about-flow-step">
+            <span>01</span>
+            <strong>Demand</strong>
+            <small>Forecast & signals</small>
+          </div>
+
+          <div class="about-flow-arrow">→</div>
+
+          <div class="about-flow-step">
+            <span>02</span>
+            <strong>Plan</strong>
+            <small>S&OP & MRP</small>
+          </div>
+
+          <div class="about-flow-arrow">→</div>
+
+          <div class="about-flow-step">
+            <span>03</span>
+            <strong>Source</strong>
+            <small>POs & suppliers</small>
+          </div>
+
+          <div class="about-flow-arrow">→</div>
+
+          <div class="about-flow-step">
+            <span>04</span>
+            <strong>Inventory</strong>
+            <small>ABC • EOQ • Safety Stock</small>
+          </div>
+
+          <div class="about-flow-arrow">→</div>
+
+          <div class="about-flow-step">
+            <span>05</span>
+            <strong>Logistics</strong>
+            <small>Movement & delivery</small>
+          </div>
+
+        </div>
+
+      </article>
+
+      <div class="about-clean-side">
+
+        <article class="about-clean-stat glass reveal">
+          <span>4+</span>
+          <strong>Years</strong>
+          <small>Supply chain & business operations</small>
+        </article>
+
+        <article class="about-clean-stat glass reveal">
+          <span>ERP</span>
+          <strong>Systems</strong>
+          <small>SAP • NetSuite • Business process understanding</small>
+        </article>
+
+        <article class="about-clean-stat glass reveal">
+          <span>BI</span>
+          <strong>Analytics</strong>
+          <small>SQL • Excel • Power BI • Tableau • Python</small>
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     EXPERIENCE
+======================================================= -->
+<section id="experience">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">02</div>
+
+      <div class="section-main">
+        <h2>Experience<span>.</span></h2>
+        <p class="section-tagline">
+          Supply chain decisions grounded in operational data.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        Experience spanning planning, procurement, inventory, transportation analytics and business operations.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <article class="role glass reveal">
+
+        <div>
+          <div class="role-date">Jun 2025 – Present</div>
+          <div class="role-company">Stanley Black & Decker</div>
+          <div class="role-location">USA</div>
+        </div>
+
+        <div class="role-main">
+          <h3>Supply Chain Analyst</h3>
+
+          <ul>
+            <li><b>10K+ shipments:</b> identified logistics bottlenecks and improved delivery coordination by 18%.</li>
+            <li><b>5+ categories:</b> aligned replenishment, warehouse needs and customer demand.</li>
+            <li><b>2K+ SKUs:</b> applied ABC, EOQ and safety-stock analysis to reduce excess inventory exposure by 14%.</li>
+            <li><b>1,500+ POs:</b> monitored supplier commitments in SAP MM, APO and SCM; improved delay visibility by 20%.</li>
+            <li><b>S&OP + MRP:</b> consolidated demand, supply, inventory and transportation inputs; cut prep time by 25%.</li>
+          </ul>
+        </div>
+
+        <div class="impact-stack">
+          <div class="impact-mini"><strong>18%</strong><span>delivery coordination</span></div>
+          <div class="impact-mini"><strong>14%</strong><span>less excess exposure</span></div>
+          <div class="impact-mini"><strong>25%</strong><span>faster planning prep</span></div>
+        </div>
+
+      </article>
+
+      <article class="role glass reveal">
+
+        <div>
+          <div class="role-date">Jan 2022 – Dec 2023</div>
+          <div class="role-company">Hail Cabs</div>
+          <div class="role-location">India</div>
+        </div>
+
+        <div class="role-main">
+          <h3>Business Analyst — Transportation & Fleet Analytics</h3>
+
+          <ul>
+            <li><b>15K+ trips:</b> improved routing and trip allocation efficiency by 16%.</li>
+            <li><b>20+ zones:</b> analyzed demand patterns and reduced peak fleet imbalances by 18%.</li>
+            <li><b>500+ drivers:</b> identified deployment gaps and improved fleet utilization by 15%.</li>
+            <li><b>10K+ transactions:</b> analyzed fares, earnings and commissions; improved financial visibility by 20%.</li>
+            <li><b>SQL + Power BI:</b> reduced manual operational reporting time by 30%.</li>
+            <li><b>8+ stakeholders:</b> converted operational issues into decision-support requirements.</li>
+          </ul>
+        </div>
+
+        <div class="impact-stack">
+          <div class="impact-mini"><strong>16%</strong><span>trip allocation</span></div>
+          <div class="impact-mini"><strong>18%</strong><span>fleet balance</span></div>
+          <div class="impact-mini"><strong>30%</strong><span>less manual reporting</span></div>
+        </div>
+
+      </article>
+
+      <article class="role glass reveal">
+
+        <div>
+          <div class="role-date">Mar 2021 – Dec 2021</div>
+          <div class="role-company">CitiusTech</div>
+          <div class="role-location">India</div>
+        </div>
+
+        <div class="role-main">
+          <h3>Business Operations Analyst</h3>
+
+          <ul>
+            <li><b>6+ systems:</b> consolidated operational data with SQL, Excel and Python.</li>
+            <li><b>12K+ records:</b> validated and reconciled data, improving reporting accuracy by 17%.</li>
+            <li><b>10+ KPIs:</b> standardized recurring management reporting.</li>
+            <li><b>Root-cause analysis:</b> reduced repeat reporting issues by 15%.</li>
+            <li><b>6+ stakeholders:</b> documented workflows, dependencies and reporting requirements.</li>
+          </ul>
+        </div>
+
+        <div class="impact-stack">
+          <div class="impact-mini"><strong>17%</strong><span>reporting accuracy</span></div>
+          <div class="impact-mini"><strong>15%</strong><span>fewer repeat issues</span></div>
+          <div class="impact-mini"><strong>10+</strong><span>standardized KPIs</span></div>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     SYSTEMS & ANALYTICS
+======================================================= -->
+<section id="systems">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">03</div>
+
+      <div class="section-main">
+        <h2>Systems<span>.</span></h2>
+        <p class="section-tagline">
+          The technology behind supply chain decisions.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        ERP, reporting and analytics tools mapped to the work they support.
+      </p>
+    </div>
+
+    <div class="systems-constellation glass reveal">
+
+      <div class="systems-center">
+        <small>DECISION ENGINE</small>
+        <strong>Supply Chain</strong>
+        <span>Plan • Source • Stock • Move</span>
+      </div>
+
+      <div class="system-orbit-card s1">
+        <span class="system-badge">SAP</span>
+        <strong>SAP MM</strong>
+        <small>Materials • POs • Inventory</small>
+      </div>
+
+      <div class="system-orbit-card s2">
+        <span class="system-badge">APO</span>
+        <strong>SAP APO</strong>
+        <small>Demand & supply planning</small>
+      </div>
+
+      <div class="system-orbit-card s3">
+        <span class="system-badge">SCM</span>
+        <strong>SAP SCM</strong>
+        <small>Planning & visibility</small>
+      </div>
+
+      <div class="system-orbit-card s4">
+        <span class="system-badge">NS</span>
+        <strong>NetSuite</strong>
+        <small>ERP • Procurement • Inventory</small>
+      </div>
+
+      <div class="system-orbit-card s5">
+        <span class="system-badge">SQL</span>
+        <strong>SQL + MySQL</strong>
+        <small>Query • Validate • Analyze</small>
+      </div>
+
+      <div class="system-orbit-card s6">
+        <span class="system-badge">XL</span>
+        <strong>Excel + Power Query</strong>
+        <small>Planning • Reconciliation</small>
+      </div>
+
+      <div class="system-orbit-card s7">
+        <span class="system-badge">BI</span>
+        <strong>Power BI + Tableau</strong>
+        <small>KPIs • Dashboards • Trends</small>
+      </div>
+
+      <div class="system-orbit-card s8">
+        <span class="system-badge">PY</span>
+        <strong>Python</strong>
+        <small>Pandas • NumPy • ETL</small>
+      </div>
+
+      <div class="systems-line line-a"></div>
+      <div class="systems-line line-b"></div>
+      <div class="systems-line line-c"></div>
+      <div class="systems-line line-d"></div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     PROJECTS
+======================================================= -->
+<section id="projects">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">04</div>
+
+      <div class="section-main">
+        <h2>Projects<span>.</span></h2>
+        <p class="section-tagline">
+          Supply chain questions turned into working analytical systems.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        Two projects reframed around inventory, demand, fleet utilization and operational decision support.
+      </p>
+    </div>
+
+    <div class="projects">
+
+      <!-- PROJECT 1 -->
+      <article class="project glass reveal">
+
+        <div class="project-grid">
+
+          <div>
+            <span class="project-number">PROJECT 01</span>
+            <span class="project-tag">Inventory • Demand • Sales • Replenishment</span>
+
+            <h3>Cleveland Auto DMS</h3>
+
+            <p>
+              An inventory and demand analytics system designed to show how stock,
+              sales movement, customer demand and revenue can be connected for faster
+              operational decision-making.
+            </p>
+
+            <div class="project-points">
+              <div class="project-point">
+                Real-time visibility into inventory position and sales movement.
+              </div>
+
+              <div class="project-point">
+                Category-level inventory and pricing analysis for demand visibility.
+              </div>
+
+              <div class="project-point">
+                Six REST API reporting endpoints supporting repeatable operational reporting.
+              </div>
+
+              <div class="project-point">
+                MySQL reporting layer connecting inventory, sales, customers and payment performance.
+              </div>
+            </div>
+
+            <div class="chips">
+              <span class="chip">Inventory Analytics</span>
+              <span class="chip">Demand Signals</span>
+              <span class="chip">Python</span>
+              <span class="chip">SQL</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">React</span>
+              <span class="chip">Node.js</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="btn primary small"
+                href="https://github.com/saideekshithareddypalpunoori-cloud/cleveland-auto-dms"
+                target="_blank"
+                rel="noopener"
+              >
+                View GitHub ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="carousel">
+            <div class="carousel-stage" id="autoStage">
+
+              <img
+                class="carousel-image active"
+                src="dashboard-overview.png"
+                alt="Cleveland Auto DMS Dashboard Overview"
+                onclick="openImageModal('dashboard-overview.png','Cleveland Auto DMS — Dashboard Overview')"
+              >
+
+              <img
+                class="carousel-image"
+                src="monthly-sales-revenue.png"
+                alt="Monthly Sales Revenue"
+                onclick="openImageModal('monthly-sales-revenue.png','Monthly Sales Revenue')"
+              >
+
+              <img
+                class="carousel-image"
+                src="inventory-category.png"
+                alt="Inventory by Category"
+                onclick="openImageModal('inventory-category.png','Inventory by Category')"
+              >
+
+              <img
+                class="carousel-image"
+                src="payment-type-revenue.png"
+                alt="Payment Type Revenue"
+                onclick="openImageModal('payment-type-revenue.png','Payment Type Revenue')"
+              >
+
+              <img
+                class="carousel-image"
+                src="top-selling-vehicles.png"
+                alt="Top Selling Vehicles"
+                onclick="openImageModal('top-selling-vehicles.png','Top Selling Vehicles')"
+              >
+
+              <img
+                class="carousel-image"
+                src="top-customers.png"
+                alt="Top Customers"
+                onclick="openImageModal('top-customers.png','Top Customers')"
+              >
+
+              <div class="carousel-overlay">
+                <span class="carousel-title" id="autoTitle">Dashboard Overview</span>
+                <span class="carousel-count" id="autoCount">1 / 6</span>
+              </div>
+
+            </div>
+
+            <div class="carousel-thumbs">
+              <button class="carousel-thumb active" onclick="setCarousel('auto',0)">
+                <img src="dashboard-overview.png" alt="Dashboard Overview">
+              </button>
+
+              <button class="carousel-thumb" onclick="setCarousel('auto',1)">
+                <img src="monthly-sales-revenue.png" alt="Monthly Sales Revenue">
+              </button>
+
+              <button class="carousel-thumb" onclick="setCarousel('auto',2)">
+                <img src="inventory-category.png" alt="Inventory">
+              </button>
+
+              <button class="carousel-thumb" onclick="setCarousel('auto',3)">
+                <img src="payment-type-revenue.png" alt="Payment Revenue">
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- PROJECT 2 -->
+      <article class="project glass reveal">
+
+        <div class="project-grid">
+
+          <div>
+            <span class="project-number">PROJECT 02</span>
+            <span class="project-tag">Fleet • Demand • Capacity • Transportation</span>
+
+            <h3>EV Taxi Analytics</h3>
+
+            <p>
+              A transportation analytics pipeline focused on demand patterns,
+              vehicle availability, utilization, trip performance and operating capacity.
+            </p>
+
+            <div class="project-points">
+              <div class="project-point">
+                Python ETL pipeline for trip, vehicle and operating data.
+              </div>
+
+              <div class="project-point">
+                Demand and utilization analysis supporting fleet allocation decisions.
+              </div>
+
+              <div class="project-point">
+                KPI dashboards for revenue, trips, driver performance and capacity usage.
+              </div>
+
+              <div class="project-point">
+                Fare prediction model demonstrating predictive decision-support capabilities.
+              </div>
+            </div>
+
+            <div class="chips">
+              <span class="chip">Transportation Analytics</span>
+              <span class="chip">Demand Analysis</span>
+              <span class="chip">Fleet Utilization</span>
+              <span class="chip">Python</span>
+              <span class="chip">Pandas</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Streamlit</span>
+              <span class="chip">Scikit-learn</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="btn primary small"
+                href="https://github.com/saideekshithareddypalpunoori-cloud/ev-taxi-analytics-dashboard"
+                target="_blank"
+                rel="noopener"
+              >
+                View GitHub ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="carousel">
+            <div class="carousel-stage" id="taxiStage">
+
+              <img
+                class="carousel-image active"
+                src="dashboard-overview.png"
+                alt="EV Taxi Dashboard Overview"
+                onclick="openImageModal('dashboard-overview.png','EV Taxi — Dashboard Overview')"
+              >
+
+              <img
+                class="carousel-image"
+                src="dashboard-filter.png"
+                alt="Dashboard Filter"
+                onclick="openImageModal('dashboard-filter.png','EV Taxi — Dashboard Filter')"
+              >
+
+              <img
+                class="carousel-image"
+                src="daily-trends.png"
+                alt="Daily Trends"
+                onclick="openImageModal('daily-trends.png','Daily Trends')"
+              >
+
+              <img
+                class="carousel-image"
+                src="driver-commission-summary.png"
+                alt="Driver Commission Summary"
+                onclick="openImageModal('driver-commission-summary.png','Driver Commission Summary')"
+              >
+
+              <img
+                class="carousel-image"
+                src="fare-prediction-model.png"
+                alt="Fare Prediction Model"
+                onclick="openImageModal('fare-prediction-model.png','Fare Prediction Model')"
+              >
+
+              <img
+                class="carousel-image"
+                src="payment-method-revenue.png"
+                alt="Payment Method Revenue"
+                onclick="openImageModal('payment-method-revenue.png','Payment Method Revenue')"
+              >
+
+              <img
+                class="carousel-image"
+                src="payment-method-trips.png"
+                alt="Payment Method Trips"
+                onclick="openImageModal('payment-method-trips.png','Payment Method Trips')"
+              >
+
+              <img
+                class="carousel-image"
+                src="vehicle-utilization.png"
+                alt="Vehicle Utilization"
+                onclick="openImageModal('vehicle-utilization.png','Vehicle Utilization')"
+              >
+
+              <div class="carousel-overlay">
+                <span class="carousel-title" id="taxiTitle">Dashboard Overview</span>
+                <span class="carousel-count" id="taxiCount">1 / 8</span>
+              </div>
+
+            </div>
+
+            <div class="carousel-thumbs">
+              <button class="carousel-thumb active" onclick="setCarousel('taxi',0)">
+                <img src="dashboard-overview.png" alt="Dashboard Overview">
+              </button>
+
+              <button class="carousel-thumb" onclick="setCarousel('taxi',1)">
+                <img src="dashboard-filter.png" alt="Dashboard Filter">
+              </button>
+
+              <button class="carousel-thumb" onclick="setCarousel('taxi',2)">
+                <img src="daily-trends.png" alt="Daily Trends">
+              </button>
+
+              <button class="carousel-thumb" onclick="setCarousel('taxi',7)">
+                <img src="vehicle-utilization.png" alt="Vehicle Utilization">
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     ERP / SAP PROJECTS
+======================================================= -->
+<section id="erp-projects">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">05</div>
+
+      <div class="section-main">
+        <h2>ERP Practice<span>.</span></h2>
+        <p class="section-tagline">
+          Supply chain concepts translated into system logic.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        Academic and hands-on learning used to strengthen ERP, planning and process understanding.
+      </p>
+    </div>
+
+    <div class="erp-grid">
+
+      <article class="erp-card glass reveal">
+        <span class="project-tag">SAP • Materials • Product Structure</span>
+
+        <h3>SAP Variant Configuration</h3>
+
+        <p>
+          Built understanding of three-level BOM structures, product characteristics,
+          master data and configuration rules — concepts that connect product structure
+          with materials planning, procurement and manufacturing execution.
+        </p>
+
+        <div class="chips">
+          <span class="chip">SAP ERP</span>
+          <span class="chip">BOM</span>
+          <span class="chip">Master Data</span>
+          <span class="chip">Materials Planning</span>
+          <span class="chip">Variant Configuration</span>
+        </div>
+      </article>
+
+      <article class="erp-card glass reveal">
+        <span class="project-tag">Process • Validation • ERP</span>
+
+        <h3>ERP Business Process Analysis</h3>
+
+        <p>
+          Applied UAT, regression testing, validation, defect tracking and process documentation
+          to understand how system workflows support reliable purchasing, inventory and operational processes.
+        </p>
+
+        <div class="chips">
+          <span class="chip">UAT</span>
+          <span class="chip">Testing</span>
+          <span class="chip">Validation</span>
+          <span class="chip">Process Mapping</span>
+          <span class="chip">Documentation</span>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     CERTIFICATIONS
+======================================================= -->
+<section id="certifications">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">06</div>
+
+      <div class="section-main">
+        <h2>Credentials<span>.</span></h2>
+        <p class="section-tagline">
+          Verified certifications plus relevant coursework.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        Formal credentials are shown separately from college-course workshops and professional learning.
+      </p>
+    </div>
+
+    <div class="cert-grid">
+
+      <article class="cert glass reveal">
+        <button
+          class="cert-button"
+          onclick="openImageModal('HubSpot Reporting Certified.png','HubSpot Reporting Certified')"
+        >
+          <img
+            src="HubSpot Reporting Certified.png"
+            alt="HubSpot Reporting Certified"
+          >
+        </button>
+
+        <div class="cert-content">
+          <h3>HubSpot Reporting Certified</h3>
+          <p>Reporting & analytics</p>
+        </div>
+      </article>
+
+      <article class="cert glass reveal">
+        <button
+          class="cert-button"
+          onclick="openImageModal('Google Analytics Certification.png','Google Analytics Certification')"
+        >
+          <img
+            src="Google Analytics Certification.png"
+            alt="Google Analytics Certification"
+          >
+        </button>
+
+        <div class="cert-content">
+          <h3>Google Analytics Certification</h3>
+          <p>Measurement & reporting</p>
+        </div>
+      </article>
+
+      <article class="cert glass reveal">
+        <button
+          class="cert-button"
+          onclick="openImageModal('HubSpot Data Integrations Certified.png','HubSpot Data Integrations Certified')"
+        >
+          <img
+            src="HubSpot Data Integrations Certified.png"
+            alt="HubSpot Data Integrations Certified"
+          >
+        </button>
+
+        <div class="cert-content">
+          <h3>HubSpot Data Integrations Certified</h3>
+          <p>CRM data & integrations</p>
+        </div>
+      </article>
+
+      <article class="cert glass reveal">
+        <button
+          class="cert-button"
+          onclick="openImageModal('Foundations of Project Management.png','Foundations of Project Management')"
+        >
+          <img
+            src="Foundations of Project Management.png"
+            alt="Foundations of Project Management"
+          >
+        </button>
+
+        <div class="cert-content">
+          <h3>Foundations of Project Management</h3>
+          <p>Google / Coursera • Projects & stakeholders</p>
+        </div>
+      </article>
+
+      <article class="cert glass reveal">
+        <button
+          class="cert-button"
+          onclick="openPdfModal('Agile Project Management.pdf','Agile Project Management')"
+          aria-label="Open Agile Project Management certificate"
+        >
+          <div class="cert-pdf-preview">
+            <iframe
+              src="Agile Project Management.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+              title="Agile Project Management certificate preview"
+              tabindex="-1"
+            ></iframe>
+          </div>
+        </button>
+
+        <div class="cert-content">
+          <h3>Agile Project Management</h3>
+          <p>HP LIFE • Agile, Scrum & Kanban</p>
+        </div>
+      </article>
+
+      <article class="cert glass reveal">
+        <button
+          class="cert-button"
+          onclick="openPdfModal('Inventory Management.pdf','Inventory Management')"
+          aria-label="Open Inventory Management certificate"
+        >
+          <div class="cert-pdf-preview">
+            <iframe
+              src="Inventory Management.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+              title="Inventory Management certificate preview"
+              tabindex="-1"
+            ></iframe>
+          </div>
+        </button>
+
+        <div class="cert-content">
+          <h3>Inventory Management</h3>
+          <p>HP LIFE • Inventory & technology</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="learning-grid">
+
+      <article class="learning-card glass reveal">
+        <small>College Course Workshop</small>
+        <strong>Advanced Excel</strong>
+        <p>
+          Applied learning in advanced spreadsheet analysis, lookup logic,
+          pivot-based reporting and business data workflows.
+        </p>
+      </article>
+
+      <article class="learning-card glass reveal">
+        <small>College Course Workshop</small>
+        <strong>SAP ERP Fundamentals</strong>
+        <p>
+          Foundational learning in ERP concepts, integrated business processes,
+          master data and system-supported operations.
+        </p>
+      </article>
+
+      <article class="learning-card glass reveal">
+        <small>College Course Workshop</small>
+        <strong>Business Analysis Foundations</strong>
+        <p>
+          Requirements, process understanding, stakeholder collaboration and structured business analysis.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     EDUCATION
+======================================================= -->
+<section id="education">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">07</div>
+
+      <div class="section-main">
+        <h2>Education<span>.</span></h2>
+        <p class="section-tagline">
+          Technology foundation. Business systems perspective.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        Information Technology → Management Information Systems.
+      </p>
+    </div>
+
+    <div class="education-path reveal">
+
+      <article class="education-school glass">
+        <div class="school-logo-wrap">
+          <img
+            src="VNRVJIET.png"
+            alt="VNR Vignana Jyothi Institute of Engineering and Technology"
+          >
+        </div>
+
+        <div class="school-copy">
+          <span class="education-label">2019 – 2023</span>
+          <h3>VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET)</h3>
+          <p>
+            Bachelor of Technology - BTech<br>
+            <strong>Information Technology</strong>
+          </p>
+        </div>
+      </article>
+
+      <div class="education-bridge" aria-hidden="true">
+        <span></span>
+        <strong>→</strong>
+        <span></span>
+      </div>
+
+      <article class="education-school glass">
+        <div class="school-logo-wrap csu-logo">
+          <img
+            src="csu.avif"
+            alt="Cleveland State University"
+          >
+        </div>
+
+        <div class="school-copy">
+          <span class="education-label">Jan 2024 – Dec 2025</span>
+          <h3>Cleveland State University</h3>
+          <p>
+            Master's degree<br>
+            <strong>Management Information Systems</strong>
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     CONTACT
+======================================================= -->
+<section id="contact">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="section-number">08</div>
+
+      <div class="section-main">
+        <h2>Contact<span>.</span></h2>
+        <p class="section-tagline">
+          Supply chain opportunity? Let's connect.
+        </p>
+      </div>
+
+      <p class="section-summary">
+        Open to supply chain, planning, inventory, procurement, logistics and analytics opportunities.
+      </p>
+    </div>
+
+    <div class="contact-box glass reveal">
+      <div class="contact-grid">
+
+        <div class="contact-copy">
+          <h3>
+            Let's improve the
+            <span>flow.</span>
+          </h3>
+
+          <p>
+            Whether the challenge is demand planning, inventory visibility,
+            procurement, logistics performance or supply chain analytics,
+            I’d be happy to connect.
+          </p>
+
+          <div class="contact-links">
+
+            <a
+              class="contact-link"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=saideekshithareddypalpunoori@gmail.com"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Open Gmail</span>
+              <span>↗</span>
+            </a>
+
+            <button
+              class="contact-link contact-button"
+              type="button"
+              onclick="copyEmail(this)"
+            >
+              <span>Copy Email</span>
+              <span class="copy-state">⧉</span>
+            </button>
+
+            <a
+              class="contact-link"
+              href="https://www.linkedin.com/in/sai-deekshitha-reddy-palpunoori-b38b60215/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>LinkedIn</span>
+              <span>↗</span>
+            </a>
+
+            <a
+              class="contact-link"
+              href="https://github.com/saideekshithareddypalpunoori-cloud"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>GitHub</span>
+              <span>↗</span>
+            </a>
+
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="sendMail(event)">
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" required placeholder="Your name">
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required placeholder="your.email@example.com">
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" required placeholder="Write your message..."></textarea>
+          </div>
+
+          <button class="btn primary" type="submit">
+            Send Message ↗
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+<footer>
+  <div class="wrap footer">
+
+    <span>
+      © <span id="year"></span> Sai Deekshitha Reddy Palpunoori
+    </span>
+
+    <strong>
+      Demand • Planning • Procurement • Inventory • Logistics
+    </strong>
+
+  </div>
+</footer>
+
+<!-- ======================================================
+     IMAGE MODAL
+======================================================= -->
+<div class="modal" id="imageModal" onclick="backdropClose(event,'imageModal')">
+  <div class="modal-card glass">
+
+    <button class="close-btn" onclick="closeModal('imageModal')">×</button>
+
+    <h3 class="modal-title" id="imageTitle"></h3>
+
+    <img
+      class="modal-img"
+      id="modalImage"
+      src=""
+      alt="Expanded portfolio image"
+    >
+
+  </div>
+</div>
+
+<!-- ======================================================
+     CERTIFICATE PDF MODAL
+======================================================= -->
+<div class="modal" id="pdfModal" onclick="backdropClose(event,'pdfModal')">
+  <div class="modal-card glass">
+
+    <button class="close-btn" onclick="closeModal('pdfModal')">×</button>
+
+    <h3 class="modal-title" id="pdfTitle"></h3>
+
+    <iframe
+      class="resume-frame"
+      id="pdfFrame"
+      src=""
+      title="Certificate PDF"
+    ></iframe>
+
+    <div class="resume-actions">
+      <a
+        class="btn primary"
+        id="pdfOpenLink"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
+        Open Certificate ↗
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================================
+     RESUME MODAL
+======================================================= -->
+<div class="modal" id="resumeModal" onclick="backdropClose(event,'resumeModal')">
+  <div class="modal-card glass resume-modal-card">
+
+    <button class="close-btn" onclick="closeModal('resumeModal')">×</button>
+
+    <h3 class="modal-title">Resume</h3>
+
+    <iframe
+      class="resume-full-frame"
+      src="resume_Sai Deekshitha_supply chain analyst.pdf#page=1&zoom=page-fit&toolbar=0&navpanes=0&scrollbar=0"
+      title="Sai Deekshitha Reddy Supply Chain Analyst Resume"
+    ></iframe>
+
+    <div class="resume-full-actions">
+
+      <a
+        class="btn primary"
+        href="resume_Sai Deekshitha_supply chain analyst.pdf"
+        download
+      >
+        Download Resume
+      </a>
+
+      <a
+        class="btn"
+        href="#contact"
+        onclick="closeModal('resumeModal')"
+      >
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function(){
+  const open = navLinks.classList.toggle("open");
+  menuBtn.textContent = open ? "×" : "☰";
+});
+
+document
+  .querySelectorAll(".nav-links a, .nav-links button")
+  .forEach(function(item){
+    item.addEventListener("click", function(){
+      navLinks.classList.remove("open");
+      menuBtn.textContent = "☰";
+    });
+  });
+
+/* =========================================================
+   CURSOR LIGHT
+========================================================= */
+const cursorLight = document.getElementById("cursorLight");
+
+if(window.matchMedia("(pointer:fine)").matches){
+  document.addEventListener("mousemove", function(event){
+    cursorLight.style.left = event.clientX + "px";
+    cursorLight.style.top = event.clientY + "px";
+  });
+}
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+const progress = document.getElementById("progress");
+
+function updateProgress(){
+  const current = window.pageYOffset || document.documentElement.scrollTop;
+  const total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+  progress.style.width = (total > 0 ? current / total * 100 : 0) + "%";
+}
+
+window.addEventListener("scroll", updateProgress, {passive:true});
+updateProgress();
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+const revealObserver = new IntersectionObserver(
+  function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold:.10,
+    rootMargin:"0px 0px -30px 0px"
+  }
+);
+
+document.querySelectorAll(".reveal").forEach(function(element){
+  revealObserver.observe(element);
+});
+
+/* =========================================================
+   ROTATING HERO FOCUS
+========================================================= */
+const focusSwitch = document.getElementById("focusSwitch");
+
+const focusAreas = [
+  "Demand Planning",
+  "Inventory Optimization",
+  "Procurement Analytics",
+  "Supplier Performance",
+  "Logistics & Transportation",
+  "S&OP + MRP",
+  "Supply Chain Analytics"
+];
+
+let focusIndex = 0;
+
+setInterval(function(){
+  focusSwitch.classList.add("swap-out");
+
+  setTimeout(function(){
+    focusIndex = (focusIndex + 1) % focusAreas.length;
+    focusSwitch.textContent = focusAreas[focusIndex];
+    focusSwitch.classList.remove("swap-out");
+  },280);
+
+},2500);
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+const counters = document.querySelectorAll(".counter");
+
+const counterObserver = new IntersectionObserver(
+  function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting){
+        return;
+      }
+
+      const element = entry.target;
+      const target = Number(element.dataset.target);
+      const suffix = element.dataset.suffix || "";
+
+      let current = 0;
+      const steps = 45;
+      const increment = target / steps;
+
+      const timer = setInterval(function(){
+        current += increment;
+
+        if(current >= target){
+          current = target;
+          clearInterval(timer);
+        }
+
+        element.textContent = Math.round(current) + suffix;
+      },22);
+
+      counterObserver.unobserve(element);
+    });
+  },
+  {threshold:.5}
+);
+
+counters.forEach(function(counter){
+  counterObserver.observe(counter);
+});
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+const sections = document.querySelectorAll("main section[id]");
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+const sectionObserver = new IntersectionObserver(
+  function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting){
+        return;
+      }
+
+      const id = entry.target.id;
+
+      navAnchors.forEach(function(link){
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + id){
+          link.classList.add("active");
+        }
+      });
+    });
+  },
+  {threshold:.35}
+);
+
+sections.forEach(function(section){
+  sectionObserver.observe(section);
+});
+
+/* =========================================================
+   HERO CARD TILT
+========================================================= */
+const commandCard = document.getElementById("commandCard");
+
+if(commandCard && window.matchMedia("(pointer:fine)").matches){
+
+  commandCard.addEventListener("mousemove", function(event){
+    const rect = commandCard.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+
+    const rotateY = (x - cx) / 42;
+    const rotateX = -(y - cy) / 42;
+
+    commandCard.style.transform =
+      "perspective(1100px) rotateX(" +
+      rotateX +
+      "deg) rotateY(" +
+      rotateY +
+      "deg)";
+  });
+
+  commandCard.addEventListener("mouseleave", function(){
+    commandCard.style.transform = "";
+  });
+}
+
+/* =========================================================
+   PROJECT CAROUSELS
+========================================================= */
+const carouselData = {
+  auto:{
+    index:0,
+    titles:[
+      "Dashboard Overview",
+      "Monthly Sales Revenue",
+      "Inventory by Category",
+      "Payment Type Revenue",
+      "Top Selling Vehicles",
+      "Top Customers"
+    ]
+  },
+
+  taxi:{
+    index:0,
+    titles:[
+      "Dashboard Overview",
+      "Dashboard Filter",
+      "Daily Trends",
+      "Driver Commission Summary",
+      "Fare Prediction Model",
+      "Payment Method Revenue",
+      "Payment Method Trips",
+      "Vehicle Utilization"
+    ]
+  }
+};
+
+function setCarousel(name,index){
+  const stage = document.getElementById(name + "Stage");
+  const images = stage.querySelectorAll(".carousel-image");
+  const carousel = stage.closest(".carousel");
+  const thumbs = carousel.querySelectorAll(".carousel-thumb");
+  const data = carouselData[name];
+
+  data.index = index;
+
+  images.forEach(function(image){
+    image.classList.remove("active");
+  });
+
+  images[index].classList.add("active");
+
+  thumbs.forEach(function(thumb){
+    thumb.classList.remove("active");
+  });
+
+  /*
+    The thumbnail groups intentionally show only selected views.
+    Activate a thumbnail only if its data-image-index matches the
+    currently selected image index.
+  */
+  thumbs.forEach(function(thumb){
+    const handler = thumb.getAttribute("onclick") || "";
+    if(handler.includes("," + index + ")")){
+      thumb.classList.add("active");
+    }
+  });
+
+  document.getElementById(name + "Title").textContent = data.titles[index];
+  document.getElementById(name + "Count").textContent = (index + 1) + " / " + images.length;
+}
+
+/* Auto-rotate project carousels */
+setInterval(function(){
+  const data = carouselData.auto;
+  const stage = document.getElementById("autoStage");
+  const total = stage.querySelectorAll(".carousel-image").length;
+
+  data.index = (data.index + 1) % total;
+  setCarousel("auto",data.index);
+},4300);
+
+setInterval(function(){
+  const data = carouselData.taxi;
+  const stage = document.getElementById("taxiStage");
+  const total = stage.querySelectorAll(".carousel-image").length;
+
+  data.index = (data.index + 1) % total;
+  setCarousel("taxi",data.index);
+},4800);
+
+/* =========================================================
+   IMAGE MODAL
+========================================================= */
+function openImageModal(src,title){
+  document.getElementById("modalImage").src = src;
+  document.getElementById("imageTitle").textContent = title || "";
+  document.getElementById("imageModal").classList.add("show");
+  document.body.classList.add("modal-open");
+}
+
+/* =========================================================
+   CERTIFICATE PDF MODAL
+========================================================= */
+function openPdfModal(src,title){
+  const frame = document.getElementById("pdfFrame");
+  const openLink = document.getElementById("pdfOpenLink");
+
+  frame.src = src + "#toolbar=0&navpanes=0&scrollbar=0&view=FitH";
+  openLink.href = src;
+
+  document.getElementById("pdfTitle").textContent = title || "Certificate";
+  document.getElementById("pdfModal").classList.add("show");
+  document.body.classList.add("modal-open");
+}
+
+/* =========================================================
+   RESUME MODAL
+========================================================= */
+function openResumeModal(){
+  document.getElementById("resumeModal").classList.add("show");
+  document.body.classList.add("modal-open");
+}
+
+/* =========================================================
+   CLOSE MODALS
+========================================================= */
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
+
+  if(!document.querySelector(".modal.show")){
+    document.body.classList.remove("modal-open");
+  }
+}
+
+function backdropClose(event,id){
+  if(event.target.id === id){
+    closeModal(id);
+  }
+}
+
+document.addEventListener("keydown", function(event){
+  if(event.key === "Escape"){
+    closeModal("imageModal");
+    closeModal("pdfModal");
+    closeModal("resumeModal");
+  }
+});
+
+/* =========================================================
+   CONTACT
+========================================================= */
+function sendMail(event){
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const subject = encodeURIComponent("Portfolio Contact from " + name);
+
+  const body = encodeURIComponent(
+    "Name: " + name +
+    "\nEmail: " + email +
+    "\n\nMessage:\n" + message
+  );
+
+  const gmailUrl =
+    "https://mail.google.com/mail/?view=cm&fs=1" +
+    "&to=" + encodeURIComponent("saideekshithareddypalpunoori@gmail.com") +
+    "&su=" + subject +
+    "&body=" + body;
+
+  window.open(gmailUrl, "_blank", "noopener");
+}
+
+function copyEmail(button){
+  const email = "saideekshithareddypalpunoori@gmail.com";
+
+  navigator.clipboard.writeText(email).then(function(){
+    const state = button.querySelector(".copy-state");
+
+    if(state){
+      const old = state.textContent;
+      state.textContent = "✓";
+
+      setTimeout(function(){
+        state.textContent = old;
+      },1600);
+    }
+  });
+}
+
+/* =========================================================
+   YEAR
+========================================================= */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
