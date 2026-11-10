@@ -1786,6 +1786,57 @@ footer{padding:24px 0 45px}
 }
 
 
+/* COMPANY LOGOS IN EXPERIENCE CARDS */
+.role{--accent:var(--lime);--accent-rgb:184,255,92}
+.role:nth-child(2){--accent:var(--cyan);--accent-rgb:105,221,255}
+.role:nth-child(3){--accent:var(--violet);--accent-rgb:172,145,255}
+
+.company-logo{
+  position:relative;height:62px;margin-bottom:16px;padding:0 16px 0 19px;
+  display:flex;align-items:center;gap:10px;overflow:hidden;
+  border:1px solid var(--line);border-radius:17px;
+  background:
+    radial-gradient(circle at 0% 50%, rgba(var(--accent-rgb),.13), transparent 62%),
+    linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+  transition:border-color .24s ease, box-shadow .24s ease;
+}
+
+.company-logo::before{
+  content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;
+  background:var(--accent);box-shadow:0 0 14px rgba(var(--accent-rgb),.55);
+}
+
+.company-logo img{
+  width:auto;height:auto;max-width:100%;max-height:24px;object-fit:contain;
+  opacity:.9;transition:opacity .24s ease;
+}
+
+.role:hover .company-logo{
+  border-color:rgba(var(--accent-rgb),.28);
+  box-shadow:0 0 28px rgba(var(--accent-rgb),.08) inset;
+}
+
+.company-logo img.logo-citiustech{max-height:17px}
+
+.role:hover .company-logo img{opacity:1}
+
+.company-mark{
+  flex:none;width:34px;height:34px;display:grid;place-items:center;border-radius:11px;
+  background:rgba(var(--accent-rgb),.13);border:1px solid rgba(var(--accent-rgb),.35);
+  color:var(--accent);font-family:"DM Mono",monospace;font-size:.72rem;font-weight:500;letter-spacing:.04em;
+}
+
+.company-wordmark{
+  color:var(--text);font-family:"Manrope",sans-serif;font-size:1rem;font-weight:800;letter-spacing:-.02em;
+  white-space:nowrap;
+}
+
+.role-brand .role-date{color:var(--accent)}
+
+@media(max-width:900px){
+  .company-logo{max-width:250px}
+}
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
@@ -2223,7 +2274,11 @@ footer{padding:24px 0 45px}
 
       <article class="role glass reveal">
 
-        <div>
+        <div class="role-brand">
+          <div class="company-logo">
+            <img src="logos/stanley-black-decker-logo.svg" alt="Stanley Black &amp; Decker" width="716" height="119" loading="lazy">
+          </div>
+
           <div class="role-date">Jun 2025 – Present</div>
           <div class="role-company">Stanley Black & Decker</div>
           <div class="role-location">USA</div>
@@ -2251,7 +2306,12 @@ footer{padding:24px 0 45px}
 
       <article class="role glass reveal">
 
-        <div>
+        <div class="role-brand">
+          <div class="company-logo company-logo--mark">
+            <span class="company-mark" aria-hidden="true">HC</span>
+            <span class="company-wordmark">Hail Cabs</span>
+          </div>
+
           <div class="role-date">Jan 2022 – Dec 2023</div>
           <div class="role-company">Hail Cabs</div>
           <div class="role-location">India</div>
@@ -2280,7 +2340,11 @@ footer{padding:24px 0 45px}
 
       <article class="role glass reveal">
 
-        <div>
+        <div class="role-brand">
+          <div class="company-logo">
+            <img class="logo-citiustech" src="logos/citiustech-logo.png" alt="CitiusTech" width="640" height="77" loading="lazy">
+          </div>
+
           <div class="role-date">Mar 2021 – Dec 2021</div>
           <div class="role-company">CitiusTech</div>
           <div class="role-location">India</div>
